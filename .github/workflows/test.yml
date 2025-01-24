@@ -9,6 +9,8 @@ jobs:
         steps:
             - name: texto
               run: echo "Hola mundo"
+            - name: Checkout
+              uses: actions/checkout@v4.2.2
     build:
         runs-on: windows-latest
         needs: inicio
