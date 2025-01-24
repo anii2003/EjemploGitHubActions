@@ -9,7 +9,7 @@ jobs:
         steps:
             - name: texto
               run: echo "Hola mundo"
-            - name: Checkout
+            - name: Clonar el repositorio
               uses: actions/checkout@v4.2.2
     build:
         runs-on: windows-latest
@@ -17,6 +17,12 @@ jobs:
         steps:
             - name: texto
               run: echo "Construir"
+            - name: instalar PHP y composer windows
+              run: |
+                choco install php --version=8.1
+                choco install composer
+                php -v
+                composer --version
     test:
         runs-on: windows-latest
         needs: build
